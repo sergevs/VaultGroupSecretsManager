@@ -1,0 +1,39 @@
+plugins {
+    id 'groovy'
+    id 'application'
+}
+
+group 'vault.gscm'
+version '1.0'
+
+sourceCompatibility = 1.8
+
+repositories {
+  jcenter()
+}
+
+application {
+    mainClass = 'vault.gscm.App'
+}
+
+configurations {
+  implementation {
+    setCanBeResolved true 
+  }
+}
+
+dependencies {
+  implementation 'com.bettercloud:vault-java-driver:5.0.0'
+  implementation 'org.yaml:snakeyaml:1.17'
+  implementation 'org.codehaus.groovy:groovy:2.5.14'
+//  implementation 'org.slf4j:slf4j-nop:1.7.25'
+}
+
+jar {
+  manifest {
+    attributes 'Main-Class': 'vault.gscm.App'
+  }
+  from {
+    configurations.implementation.collect { it.isDirectory() ? it : zipTree(it) }
+  }
+}

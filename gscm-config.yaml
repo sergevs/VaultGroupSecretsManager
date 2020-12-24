@@ -1,0 +1,15 @@
+---
+# required configuration key
+secretMap:
+  # list of source secrets to process
+  - source: accounts/google
+    # list of target to copy secrets
+    targets: 
+      - /groups/team1/managed/google
+
+  - source: accounts/apple
+    # list of secreat fields to select for copy
+    secrets:
+      - myaccount
+    targets: 
+      - /groups/team1/managed/apple
