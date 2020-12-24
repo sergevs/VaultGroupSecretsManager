@@ -50,10 +50,10 @@ export VAULT_ADDR='https://my.vault.example.org'
 export VAULT_TOKEN='my token with required permissions to access and write secrets'
 
 java -jar build/libs/vault.gscm-1.0.jar
-
 ```
 
 ### Docker container
+As an instance:
 ```
 docker run --rm -it -e VAULT_ADDR='https://my.vault.example.org' \
                     -e VAULT_TOKEN='my token with required permissions to access and write secrets' \
