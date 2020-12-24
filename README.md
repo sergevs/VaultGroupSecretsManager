@@ -1,4 +1,4 @@
-# Vault group secrets manager
+# [Vault](https://www.vaultproject.io/) group secrets manager
 
 ## Description
 The application may be used to introduce a groups or teams shared secrets role based access. The problem is described at vault [issue 1284](https://github.com/hashicorp/vault/issues/1284). It does not introduce symlinks, but copy secrets according to configurations to desired paths which in turn may be allowed for teams using standard vault ACL.
