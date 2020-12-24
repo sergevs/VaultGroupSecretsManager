@@ -10,7 +10,7 @@ Now you have to provide access to some secrets to teams or another groups. The g
 * Check if secrets already exists at target path and copy it if not.
 
 ## Requiremets
-The application is designed and tested for [KV Secrets Engine - Version 2](https://www.vaultproject.io/docs/secrets/kv/kv-v2).
+The application designed and tested for [KV Secrets Engine - Version 2](https://www.vaultproject.io/docs/secrets/kv/kv-v2).
 KV Secrets Engine Version 1 is not supported.
 
 ## Build
