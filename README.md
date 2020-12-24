@@ -4,10 +4,14 @@
 The application may be used to introduce a groups or teams shared secrets role based access. The problem is described at vault [issue 1284](https://github.com/hashicorp/vault/issues/1284). It does not introduce symlinks, but copy secrets according to configurations to desired paths which in turn may be allowed for teams using standard vault ACL.
 As an example: 
 There is a structured secrets path with a convenient for applications access.
-Now you have to provide access to some secrets to teams or another groups. The group secrets manager allows to configure to copy particular secrets at another location. How it works.
+Now you have to provide access to some secrets to teams or another groups. The group secrets manager allows to configure to copy particular secrets at another location. How it works:
 * Read configuration file where sources and secrets are described
 * Collect secrets at source locations
 * Check if secrets already exists at target path and copy it if not.
+
+## Requiremets
+The application is designed and tested for [KV Secrets Engine - Version 2](https://www.vaultproject.io/docs/secrets/kv/kv-v2).
+KV Secrets Engine Version 1 is not supported.
 
 ## Build
 [Gradle](https://gradle.org/) and [jdk8](https://openjdk.java.net/projects/jdk8u/) is required to build.
