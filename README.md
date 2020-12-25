@@ -57,6 +57,6 @@ As an instance:
 ```
 docker run --rm -it -e VAULT_ADDR='https://my.vault.example.org' \
                     -e VAULT_TOKEN='my token with required permissions to access and write secrets' \
-                    -v gscm-config.yaml:/app/gscm-config.yaml \
+                    --mount type=bind,source=${PWD}/gscm-config.yaml,target=/app/gscm-config.yaml \
                     vault-group-secrets-manager:1.0
 ```
