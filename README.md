@@ -53,7 +53,7 @@ java -jar build/libs/vault.gscm-1.0.jar
 ```
 
 ### Docker container
-Ready to use docker image is available at (docker hub)[https://hub.docker.com/r/sergevs42/vault-group-secrets-manager]
+Ready to use docker image is available at [docker hub](https://hub.docker.com/r/sergevs42/vault-group-secrets-manager)
 
 Run example:
 ```
