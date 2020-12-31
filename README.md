@@ -54,7 +54,8 @@ java -jar build/libs/vault.gscm-1.0.jar
 
 ### Docker container
 Ready to use docker image is available at (docker hub)[https://hub.docker.com/r/sergevs42/vault-group-secrets-manager]
-As an instance:
+
+Run example:
 ```
 docker run --rm -it -e VAULT_ADDR='https://my.vault.example.org' \
                     -e VAULT_TOKEN='my token with required permissions to access and write secrets' \
