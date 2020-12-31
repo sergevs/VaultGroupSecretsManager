@@ -8,7 +8,7 @@ secretMap:
       - /groups/team1/managed/google
 
   - source: accounts/apple
-    # list of secreat fields to select for copy
+    # list of secret fields to select for copy
     secrets:
       - myaccount
     targets: 
