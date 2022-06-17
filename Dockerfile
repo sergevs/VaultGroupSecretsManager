@@ -1,9 +1,9 @@
-FROM gradle:jdk8 AS gradle
+FROM gradle:6.8.3-jre11 AS gradle
 COPY src gscm/src
 COPY *.gradle gscm/
 RUN cd gscm && gradle --no-daemon build
 
-FROM openjdk:8-jdk-buster
+FROM openjdk:17-jdk-buster
 ARG APP_UID=2542
 ARG APP_GID=2542
 
