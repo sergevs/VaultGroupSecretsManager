@@ -10,6 +10,7 @@ environment variables:
   VAULT_K8S_ROLE if set, authenticate with kubernetes
   VAULT_K8S_TOKEN jwt token, required if VAULT_K8S_ROLE is specified
   VAULT_GSCM_CONFIG configuration file name, default to gscm-config.yaml
+  VAULT_GSCM_INTERVAL update interval in minutes, perform one time run if <=0 or unset
 */
 
 // configure vault connection and authentication
@@ -43,5 +44,18 @@ if (System.getenv('VAULT_TOKEN')) {
 // configure group secrets manager
 gscmConfig = System.getenv('VAULT_GSCM_CONFIG') ?: 'gscm-config.yaml'
 
-groupSecretsManager = new vaultGroupSecretsManager(vault, gscmConfig)
-groupSecretsManager.updateTargetsPath()
+if (System.getenv('VAULT_GSCM_INTERVAL')) {
+  gscmInterval = System.getenv('VAULT_GSCM_INTERVAL').toInteger() * 1000 * 60
+} else {
+  gscmInterval = 0
+}
+
+while (true) {
+  groupSecretsManager = new vaultGroupSecretsManager(vault, gscmConfig)
+  groupSecretsManager.updateTargetsPath()
+  if (gscmInterval<=0) {
+    break
+  }
+  Thread.sleep(gscmInterval)
+  vault.auth().renewSelf()
+}
